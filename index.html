@@ -1,20 +1,51 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 
 <head>
     <title>Happy Birthday</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="css/fish-animation.css?v=3">
 </head>
 
 <body>
     <div class="container">
         <div class="row">
             <div class="loader">
-                <button id="play">Start</button>
+                <div class="pet-card" id="pet-card" role="button" tabindex="0" aria-label="Acaricia al gato para abrir">
+                    <div class="cat-wrapper" aria-hidden="true">
+                        <div class="cat" id="cat">
+                            <div class="ear ear-left"></div>
+                            <div class="ear ear-right"></div>
+                            <div class="head">
+                                <div class="eye eye-left"><div class="pupil"></div><div class="sparkle"></div></div>
+                                <div class="eye eye-right"><div class="pupil"></div><div class="sparkle"></div></div>
+                                <div class="snout"><div class="nose"></div><div class="mouth"></div></div>
+                                <div class="whiskers left"><span></span><span></span></div>
+                                <div class="whiskers right"><span></span><span></span></div>
+                            </div>
+                            <div class="paws"><div class="paw paw-left"></div><div class="paw paw-right"></div></div>
+                        </div>
+                    </div>
+                    <div class="pet-info">
+                        <h2>Un cumpleaños especial</h2>
+                        <p>Acaricia al gato para abrir</p>
+                        <div class="purr-bar" role="progressbar" aria-label="Ronroneo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                            <div class="purr-fill" id="purrFill"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+    <div class="gift-stage" id="gift-stage" aria-hidden="true">
+        <button class="gift-box" id="gift-box" type="button" aria-label="Abrir el regalo">
+            <span class="gift-lid"><span class="gift-bow"></span></span>
+            <span class="gift-box-body"><span class="gift-box-ribbon"></span></span>
+        </button>
+        <p class="gift-prompt">Toca la caja para abrir tu regalo</p>
     </div>
     <audio class="song" controls loop>
         <source src="music.mp3">
@@ -30,16 +61,39 @@
                     <img src="img/banner.png" alt="">
                 </div>
 
-                <div class="col-12  text-center">
-                    <div id="name" class="area">Gaurav</div>
+                <div class="col-12 text-center">
+                    <div class="fish-name-viewport">
+                        <svg id="name" class="fish-name-svg" viewBox="0 0 640 180" role="img" aria-label="Karen" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="fish-water" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0" stop-color="#006d77"></stop>
+                                    <stop offset="1" stop-color="#023047"></stop>
+                                </linearGradient>
+                                <mask id="fish-name-mask" mask-type="luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="640" height="180">
+                                    <rect width="640" height="180" fill="black"></rect>
+                                    <text id="name-text" x="320" y="130" text-anchor="middle" textLength="520" lengthAdjust="spacingAndGlyphs" font-family="Arial, sans-serif" font-size="130" font-weight="900" fill="white">KAREN</text>
+                                </mask>
+                            </defs>
+                            <g mask="url(#fish-name-mask)">
+                                <rect width="640" height="180" fill="url(#fish-water)"></rect>
+                                <g class="letter-fish fish-a" transform="translate(62 68) scale(1.15)" style="--fish-x: 62px; --fish-y: 68px; --fish-scale: 1.15; --fish-distance: 35px; --fish-duration: 5.5s"><path class="fish-tail" d="M26 12 42 2 42 22Z"></path><path class="fish-body" d="M28 12C21 3 6 3 0 12c6 9 21 9 28 0Z"></path><path class="fish-fin" d="M13 6 20 0l4 9Z"></path><circle class="fish-eye" cx="5" cy="10" r="3"></circle><circle class="fish-pupil" cx="5" cy="10" r="1.5"></circle></g>
+                                <g class="letter-fish fish-b" transform="translate(177 76) scale(1.2)" style="--fish-x: 177px; --fish-y: 76px; --fish-scale: 1.2; --fish-distance: -35px; --fish-duration: 7s"><path class="fish-tail" d="M26 12 42 2 42 22Z"></path><path class="fish-body" d="M28 12C21 3 6 3 0 12c6 9 21 9 28 0Z"></path><path class="fish-fin" d="M13 6 20 0l4 9Z"></path><circle class="fish-eye" cx="5" cy="10" r="3"></circle><circle class="fish-pupil" cx="5" cy="10" r="1.5"></circle></g>
+                                <g class="letter-fish fish-c" transform="translate(292 76) scale(1.15)" style="--fish-x: 292px; --fish-y: 76px; --fish-scale: 1.15; --fish-distance: 35px; --fish-duration: 6s"><path class="fish-tail" d="M26 12 42 2 42 22Z"></path><path class="fish-body" d="M28 12C21 3 6 3 0 12c6 9 21 9 28 0Z"></path><path class="fish-fin" d="M13 6 20 0l4 9Z"></path><circle class="fish-eye" cx="5" cy="10" r="3"></circle><circle class="fish-pupil" cx="5" cy="10" r="1.5"></circle></g>
+                                <g class="letter-fish fish-d" transform="translate(407 76) scale(1.2)" style="--fish-x: 407px; --fish-y: 76px; --fish-scale: 1.2; --fish-distance: -35px; --fish-duration: 6.5s"><path class="fish-tail" d="M26 12 42 2 42 22Z"></path><path class="fish-body" d="M28 12C21 3 6 3 0 12c6 9 21 9 28 0Z"></path><path class="fish-fin" d="M13 6 20 0l4 9Z"></path><circle class="fish-eye" cx="5" cy="10" r="3"></circle><circle class="fish-pupil" cx="5" cy="10" r="1.5"></circle></g>
+                                <g class="letter-fish fish-e" transform="translate(522 76) scale(1.15)" style="--fish-x: 522px; --fish-y: 76px; --fish-scale: 1.15; --fish-distance: -35px; --fish-duration: 5s"><path class="fish-tail" d="M26 12 42 2 42 22Z"></path><path class="fish-body" d="M28 12C21 3 6 3 0 12c6 9 21 9 28 0Z"></path><path class="fish-fin" d="M13 6 20 0l4 9Z"></path><circle class="fish-eye" cx="5" cy="10" r="3"></circle><circle class="fish-pupil" cx="5" cy="10" r="1.5"></circle></g>
+                                <g class="letter-fish fish-f" transform="translate(105 112) scale(1)" style="--fish-x: 105px; --fish-y: 112px; --fish-scale: 1; --fish-distance: 45px; --fish-duration: 8s"><path class="fish-tail" d="M26 12 42 2 42 22Z"></path><path class="fish-body" d="M28 12C21 3 6 3 0 12c6 9 21 9 28 0Z"></path><path class="fish-fin" d="M13 6 20 0l4 9Z"></path><circle class="fish-eye" cx="5" cy="10" r="3"></circle><circle class="fish-pupil" cx="5" cy="10" r="1.5"></circle></g>
+                                <text class="fish-name-text" x="320" y="130" text-anchor="middle" textLength="520" lengthAdjust="spacingAndGlyphs" font-family="Arial, sans-serif" font-size="130" font-weight="900" fill="transparent">KAREN</text>
+                            </g>
+                        </svg>
+                    </div>
                 </div>
 
                 <div class="col-12 text-center">
                     <div class="type-wrap">
                         <div id="typed-strings" class="typing">
-                            <h2>Happy Birthday <i id="nae">Gaurav</i></h2>
-                            <h2>Have a wonderful day</h2>
-                            <h2>Filled with joy and happiness.</h2>
+                            <h2>¡Feliz cumpleaños, <i id="nae">Karen</i>!</h2>
+                            <h2>Que tengas un día maravilloso</h2>
+                            <h2>Lleno de alegría y felicidad</h2>
                         </div>
                         <span id="typed" style="white-space:pre;"></span>
                     </div>
@@ -48,14 +102,34 @@
                 <div class="col-12 col-xl-3 cake">
                     <img src="img/cake.gif" alt="">
                 </div>
+                <div class="blow-control">
+                    <button class="blow-button" id="blow-button" type="button" hidden>Sopla la vela</button>
+                </div>
             </div>
         </div>
         <img src="img/Balloon-Border.png" width="100%" class="balloon-border">
     </div>
+    <div class="blow-gif-stage" id="blow-gif-stage" hidden aria-hidden="true">
+        <img id="blow-gif" alt="Karen sopla la vela">
+    </div>
+    <div class="wind-stage" id="wind-stage" hidden aria-hidden="true">
+        <canvas id="c" aria-label="Celebración de partículas de colores"></canvas>
+    </div>
+    <section class="invitation-stage" id="invitation-stage" hidden aria-hidden="true">
+        <video id="invitation-video" muted loop playsinline preload="metadata">
+            <source src="img/fondo.mp4" type="video/mp4">
+        </video>
+        <div class="invitation-sheet">
+            <p class="invitation-eyebrow">Una celebración especial</p>
+            <h1>Estás cordialmente invitado</h1>
+            <p>al cumpleaños de <strong id="invitation-name">Karen</strong></p>
+            <p>que se celebrará en...</p>
+            <p class="invitation-details">Fecha, hora y lugar por confirmar</p>
+        </div>
+    </section>
 </body>
-<script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
 <script src="js/jquery.js"></script>
 <script src="js/typed.min.js"></script>
-<script src="js/script.js"></script>
+<script src="js/script.js?v=9"></script>
 
 </html>
