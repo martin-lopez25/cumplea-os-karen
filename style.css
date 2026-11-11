@@ -587,8 +587,14 @@ body.show-invitation .balloon-border {
 .invitation-sheet {
     position: relative;
     z-index: 1;
-    width: min(580px, calc(100% - 32px));
-    padding: clamp(24px, 6vw, 56px);
+    display: flex;
+    width: min(440px, calc(100% - 32px));
+    max-height: calc(100vh - 32px);
+    aspect-ratio: 3 / 4;
+    flex-direction: column;
+    justify-content: center;
+    overflow: auto;
+    padding: clamp(24px, 6vw, 48px);
     border: 1px solid rgba(255, 255, 255, 0.82);
     background: rgba(255, 249, 238, 0.94);
     box-shadow: 0 24px 70px rgba(23, 45, 50, 0.24);
